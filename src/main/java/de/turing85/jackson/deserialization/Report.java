@@ -5,20 +5,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
 @Getter
-public class Foo {
+public class Report {
   private Status status;
-  private String statusText;
+  private String inputStatus;
 
   @JsonProperty("status")
-  public void setStatusText(String statusText) {
-    this.statusText = statusText;
-    this.setStatus(Status.getByNameOrDefault(statusText, Status.UNKNOWN));
+  public void setInputStatus(String inputStatus) {
+    this.inputStatus = inputStatus;
+    this.setStatus(Status.getByNameOrDefault(inputStatus, Status.UNKNOWN));
   }
 
   @JsonIgnore
   private void setStatus(Status status) {
     this.status = status;
   }
-
-
 }
